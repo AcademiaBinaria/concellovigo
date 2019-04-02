@@ -1,0 +1,11 @@
+{
+  "workbench.colorCustomizations": {
+    "editorError.foreground": "#ff9900",
+    "editorWarning.foreground": "#BBCBC2",
+    "editorInfo.foreground": "#9ea39e",
+    "titleBar.activeBackground": "#42b883",
+    "titleBar.inactiveBackground": "#42b88399",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveForeground": "#15202b99"
+  }
+}
