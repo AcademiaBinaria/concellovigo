@@ -1,0 +1,26 @@
+<header>
+  <h2>Lugares de interés turístico</h2>
+</header>
+<main class="row">
+  <article *ngFor="let lugar of lugares$ | async"
+           class="card">
+    <h3 class="section">
+      {{ lugar.title }}
+    </h3>
+    <section class="section"><img src="{{ lugar.image_uri}} "
+           class="section media" />
+    </section>
+    <section>
+      {{ lugar.description }}
+    </section>
+    <section *ngIf="lugar.address">
+      <a href="http://maps.google.com/maps?z=14&t=k&q=loc:{{ lugar.lat }}+{{ lugar.lon }}"
+         target="_blank">
+        <span class="icon-location"></span>{{ lugar.address }}
+      </a>
+    </section>
+    <footer class="section">
+      <mark>{{ lugar.tipo }}</mark> <mark class="tertiary">{{ lugar.subcategoria }}</mark>
+    </footer>
+  </article>
+</main>
