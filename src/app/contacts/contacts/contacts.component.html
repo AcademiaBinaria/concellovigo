@@ -52,20 +52,20 @@
         </option>
       </select>
     </section>
-    <section *ngIf="contact.workStatus==3">
+    <!-- <section *ngIf="contact.workStatus==3">
       <label for="company">Company Name</label>
       <input name="company"
              type="text"
              [(ngModel)]="contact.company" />
     </section>
-    <section *ngIf="contact.workStatus!=3">
+    <section *ngIf="contact.workStatus.toString()!=='3'">
       <label for="education">Education</label>
       <input name="education"
              type="text"
              [(ngModel)]="contact.education" />
-    </section>
+    </section> -->
 
-    <section *ngIf="contact.workStatus==3; else education">
+    <section *ngIf="contact.workStatus.toString()==='3'; else education">
       <label for="company">Company Name</label>
       <input name="company"
              type="text"
@@ -80,5 +80,17 @@
       </section>
     </ng-template>
   </fieldset>
+  <input value="Save"
+         type="submit"
+         (click)="saveContact()" />
 </form>
-<pre>{{ contact | json }}</pre>
+<!-- <pre>{{ contact | json }}</pre> -->
+<ul *ngIf="contacts.length>0; else empty">
+  <li *ngFor="let contact of contacts">
+    <span>{{ contact.name }}</span>
+    <input value="Delete"
+           type="button"
+           (click)="deleteContact(contact)" />
+  </li>
+</ul>
+<ng-template #empty> <i>No data yet</i> </ng-template>

@@ -18,6 +18,7 @@ export class ContactsComponent implements OnInit {
     { id: 3, description: 'employed' }
   ];
   public contact: Contact = { name: '', isVIP: false, gender: '', workStatus: 0, education: 7, company: '' };
+  public contacts: Contact[] = [];
 
   constructor() {}
 
@@ -29,6 +30,31 @@ export class ContactsComponent implements OnInit {
     } else {
       this.contact.company = '';
     }
+  }
+
+  public saveContact() {
+    this.contacts.push({ ...this.contact });
+    this.numContacts = this.contacts.length;
+  }
+  public deleteContact(contact: Contact) {
+    this.contacts = this.contacts.filter(c => c.name !== contact.name);
+    // this.contacts = this.contacts.filter(function filtro(c) {
+    //   if (c.name !== contact.name) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // });
+    // this.contacts = this.contacts.filter(c => {
+    //   if (c.name !== contact.name) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // });
+    // this.contacts = this.contacts.filter((c: Contact) => c.name !== contact.name);
+
+    this.numContacts = this.contacts.length;
   }
 }
 
