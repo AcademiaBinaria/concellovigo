@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: './car/car.module#CarModule'
   },
   {
+    path: 'converter',
+    loadChildren: './converter/converter.module#ConverterModule'
+  },
+  {
     path: 'turismo',
     loadChildren: './turismo/turismo.module#TurismoModule'
   },
